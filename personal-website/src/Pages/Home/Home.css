@@ -1,92 +1,80 @@
 /* src/Pages/Home/Home.css */
-/* src/Pages/Home/Home.css */
-.home-container {
+.home {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding: 40px 20px;
-    background-color: #f0f4f8;
+    height: 100vh;
+    text-align: center;
+    background-image: url('./assets/homebackground.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Key for parallax effect */
   }
-  
-  .home-content {
-    display: flex;
-    align-items: center;
-    background: white;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 20px;
-    max-width: 800px;
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin-bottom: 40px;
+    height: 100%;
+    background-image: url('./assets/homebackground.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1; /* Send background behind the content */
+    }
+
+  .section {
+    padding: 100px 20px;
+    background-color: #fff;
+    text-align: center;
   }
   
-  .profile-picture {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-right: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  .section h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
   }
   
-  .summary {
-    max-width: 600px;
+  .section p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
   }
+
+  .title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #333;
+  }
+
   
-  .summary h1 {
-    font-size: 2.5em;
+  h1 {
+    font-size: 3rem;
     color: #333;
     margin-bottom: 10px;
   }
   
-  .summary p {
-    font-size: 1.2em;
-    line-height: 1.6;
-    color: #555;
-  }
-  
-  .resume-section {
-    background: white;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 20px;
-    max-width: 800px;
-    width: 100%;
-    margin-bottom: 30px;
-  }
-  
-  .resume-section h2 {
-    font-size: 2em;
-    color: #333;
-    margin-bottom: 15px;
-  }
-  
-  .experience, .project {
+  p {
+    font-size: 1.5rem;
+    color: #777;
     margin-bottom: 20px;
   }
   
-  .experience h3, .project h3 {
-    font-size: 1.5em;
-    color: #555;
-    margin-bottom: 5px;
+  .social-icons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
   }
   
-  .experience p, .project p {
-    font-size: 1em;
-    line-height: 1.5;
-    color: #777;
+  .social-icons a {
+    font-size: 1.5rem;
+    color: #333;
+    text-decoration: none;
   }
   
-  .skills-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .skills-list li {
-    background: #eee;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
-    font-size: 1em;
+  .social-icons a:hover {
     color: #555;
   }

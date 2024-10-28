@@ -1,11 +1,12 @@
 // src/Pages/About/About.js
 import React from 'react';
 import './About.css';
+import profilePic from './assets/profile_image.jpg';
 const About = () => {
   return (
     <div className="about-container">
       <div className="about-content">
-        <div className="summary">
+      <div className="summary">
           <h1>Summary</h1>
           <p>
           Recent Computer Science graduate with experience in software development, data structures, 
@@ -14,13 +15,20 @@ const About = () => {
            to developing technical skills and contributing to a collaborative team environment.
           </p>
         </div>
+      <img src={profilePic} alt="Profile" className="profile-picture" />
       </div>
 
       {/* Resume Sections */}
+
       <div className="resume-section">
-        <h2>Experience</h2>
+        <h2>Education</h2>
+        <p>Bachelor of Science in Computer Science, Arizona State University</p>
+      </div>
+      
+      <div className="resume-section">
+        <h2>Engineering Experience</h2>
         <div className="experience">
-          <h3>Software Developer - ANDBOUNDS</h3>
+          <h3>Software Developer - DataAnnotation</h3>
           <p>Utilized DataAnnotation tools and platforms to label and tag data for machine learning and AI applications.</p>
         </div>
         <div className="experience">
@@ -34,13 +42,17 @@ const About = () => {
       </div>
 
       <div className="resume-section">
-        <h2>Projects</h2>
-        <div className="project">
-          <h3>iOS G-Force Analyzer App</h3>
+        <h2>Customer Experience</h2>
+        <div className="experience">
+          <h3>Barista - Guest Services International</h3>
           <p>An iOS app that uses onboard sensors to collect and analyze roller coaster ride data, generating detailed reports and integrating with third-party APIs.</p>
         </div>
-        <div className="project">
-          <h3>Disney Trivia App</h3>
+        <div className="experience">
+          <h3>Waiter - Blue Line Pizza</h3>
+          <p>A full-stack iOS app with a Swift UI, PostgreSQL database, and a RESTful back-end in Express.js.</p>
+        </div>
+        <div className="experience">
+          <h3>Ride Operator - Six Flags Entertainment</h3>
           <p>A full-stack iOS app with a Swift UI, PostgreSQL database, and a RESTful back-end in Express.js.</p>
         </div>
       </div>
@@ -53,11 +65,6 @@ const About = () => {
           <li>Full-Stack Development</li>
           <li>Data Analytics & Visualization</li>
         </ul>
-      </div>
-
-      <div className="resume-section">
-        <h2>Education</h2>
-        <p>Bachelor of Science in Computer Science, Arizona State University</p>
       </div>
     </div>
   );

@@ -1,56 +1,67 @@
 /* src/Components/Navbar.css */
 /* src/Components/Navbar.css */
 .navbar {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.85); /* Adjusted for slight transparency */
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
-    background-color: #C0C0C0;
+    justify-content: center;
+    backdrop-filter: blur(10px); /* Optional: adds a slight blur effect */
+    box-sizing: border-box;
   }
-  
-  .header-top {
+.nav-links {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
+    gap: 40px;
   }
-  
-  .name {
-    font-size: 2.5em;
-    font-weight: bold;
+
+  .nav-links a {
+    text-decoration: none;
     color: #333;
-    margin-bottom: 10px;
+    font-size: 1.1rem;
   }
   
-  .social-icons {
+.header-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+  
+.social-icons {
     display: flex;
     gap: 20px;
+    padding: 5px 0;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
   }
   
-  .icon {
+.icon {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #555;
+    background-color: #DCDCDC;
     color: white;
     font-size: 1.2em;
     transition: background-color 0.3s ease;
     text-decoration: none;
   }
   
-  .icon:hover {
-    background-color: #333;
+.icon:hover {
+    background-color: #778899;
   }
   
-  .nav-container {
+.nav-container {
     width: 100%;
     max-width: 1200px;
   }
   
-  .nav-list {
+.nav-list {
     display: flex;
     justify-content: center;
     list-style-type: none;
@@ -58,18 +69,18 @@
     margin: 0;
   }
   
-  .nav-item {
+.nav-item {
     position: relative;
     padding: 15px 20px;
   }
   
-  .nav-item a, .nav-item span {
+.nav-item a, .nav-item span {
     color: #333;
     text-decoration: none;
     font-size: 1.1em;
   }
   
-  .dropdown-menu {
+.dropdown-menu {
     display: none;
     position: absolute;
     background-color: white;
@@ -78,17 +89,17 @@
     z-index: 1;
   }
   
-  .dropdown-menu li a {
+.dropdown-menu li a {
     color: #333;
     padding: 10px 16px;
     display: block;
     text-decoration: none;
   }
   
-  .dropdown-menu li a:hover {
+.dropdown-menu li a:hover {
     background-color: #ddd;
   }
   
-  .nav-item:hover .dropdown-menu {
+.nav-item:hover .dropdown-menu {
     display: block;
   }
