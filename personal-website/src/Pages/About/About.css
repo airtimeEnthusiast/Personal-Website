@@ -93,3 +93,14 @@
     font-size: 1em;
     color: #555;
   }
+
+  .language-item {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add spacing between the icon and text */
+    font-size: 1.1em;
+  }
+  
+  .language-item svg {
+    font-size: 1.5em; /* Adjust the size of the icon */
+  }

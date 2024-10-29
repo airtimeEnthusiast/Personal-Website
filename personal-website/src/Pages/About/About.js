@@ -2,7 +2,7 @@
 import React from 'react';
 import './About.css';
 import { profilePic } from '../../index.ts';
-import { aboutData } from './aboutData.ts';
+import { aboutData, languages } from './aboutData.ts';
 
 const About = () => {
     return (
@@ -51,6 +51,16 @@ const About = () => {
             ))}
           </ul>
         </div>
+
+        <div className="resume-section">
+          <h2>Languages</h2>
+          <ul className="skills-list">
+          {languages.map((language, index) => (
+            <img className='language-item' title={language.title} src={language.icon}/>
+          ))}
+        </ul>
+        </div>
+
       </div>
     );
   };

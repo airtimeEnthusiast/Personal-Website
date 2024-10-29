@@ -1,17 +1,24 @@
 // src/data/aboutData.ts
 
+import { typescript } from "../../index.ts";
+
 export interface Experience {
     title: string;
     description: string;
     date: string;
   }
   
-  export interface ResumeSection {
+export interface ResumeSection {
     title: string;
     experiences: Experience[];
   }
+
+export const languages = [
+    {title: "typescript", icon: typescript}, 
+];
+
   
-  export interface AboutData {
+export interface AboutData {
     summary: string;
     education: string;
     engineeringExperience: ResumeSection;
