@@ -20,7 +20,6 @@ const Navbar = () => {
                 <li><Link to="/projects/other">Other</Link></li>
               </ul>
             </li>
-            <li className="nav-item"><Link to="/about">About</Link></li>
             <li className="nav-item"><Link to="/contact">Contact</Link></li>
             <li className="nav-item dropdown">
               <span>Vacation Trips</span>

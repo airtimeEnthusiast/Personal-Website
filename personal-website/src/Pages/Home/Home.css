@@ -1,5 +1,5 @@
 /* src/Pages/Home/Home.css */
-.home {
+/*.home {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +9,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Key for parallax effect */
+    background-attachment: fixed; /* Key for parallax effect 
   }
 
 .background {
@@ -21,10 +21,10 @@
     background-image: url('./assets/homebackground.jpg');
     background-size: cover;
     background-position: center;
-    z-index: -1; /* Send background behind the content */
-    }
+    z-index: -1; /* Send background behind the content 
+}
 
-  .section {
+  /*.section {
     padding: 100px 20px;
     background-color: #fff;
     text-align: center;
@@ -77,4 +77,4 @@
   
   .social-icons a:hover {
     color: #555;
-  }
+  }*/

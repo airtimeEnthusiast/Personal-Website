@@ -1,6 +1,6 @@
 // src/data/aboutData.ts
 
-import { typescript } from "../../index.ts";
+import { typescript , java, cpp, sql,python} from "../../index.ts";
 
 export interface Experience {
     title: string;
@@ -14,7 +14,10 @@ export interface ResumeSection {
   }
 
 export const languages = [
-    {title: "typescript", icon: typescript}, 
+    {title: "typescript", icon: typescript},
+    {title: "java", icon: java},
+    {title: "cpp", icon: cpp}, 
+    {title: "sql", icon: sql},
 ];
 
   

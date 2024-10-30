@@ -1,21 +1,20 @@
-// src/Pages/Home/Home.js
+// src/Pages/Title/Title.js
 import React from 'react';
-import './Home.css';
-import About from '../About/About';
-import Title from '../Title/Title';
+import './Title.css';
+//import { FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
 
-import { Parallax, ParallaxLayer } from '@react-spring/web'
-
-const Home = () => {
+const Title = () => {
   return (
-    <div>
-      <Title/>
-      <About/>
+    <div className="title">
+      <div className="content">
+        <h1>Austin Wright</h1>
+        <p>Software Developer | 3D Modeler | Tech Enthusiast</p>
+      </div>
     </div>
   );
 };
 
-export default Home;
+export default Title;
 
 
 /*
