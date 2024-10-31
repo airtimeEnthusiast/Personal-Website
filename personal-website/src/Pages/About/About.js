@@ -56,7 +56,9 @@ const About = () => {
           <h2>Languages</h2>
           <ul className="skills-list">
           {languages.map((language, index) => (
+            <a href={language.url} target="_blank" rel="noopener noreferrer">
             <img className='language-item' title={language.title} src={language.icon}/>
+            </a>
           ))}
         </ul>
         </div>

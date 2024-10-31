@@ -1,6 +1,6 @@
 // src/data/aboutData.ts
 
-import { typescript , java, cpp, sql,python} from "../../index.ts";
+import { typescript , java, cpp, c, sql, python, swift,react} from "../../index.ts";
 
 export interface Experience {
     title: string;
@@ -14,10 +14,14 @@ export interface ResumeSection {
   }
 
 export const languages = [
-    {title: "typescript", icon: typescript},
-    {title: "java", icon: java},
-    {title: "cpp", icon: cpp}, 
-    {title: "sql", icon: sql},
+    {title: "swift", icon: swift, url: "https://www.swift.org" },
+    {title: "java", icon: java, url: "https://docs.oracle.com/en/java/"},
+    {title: "python", icon: python, url: "https://devdocs.io/python~3.11/"},
+    {title: "cpp", icon: cpp, url: "https://devdocs.io/cpp/"},
+    {title: "c", icon: c, url: "https://devdocs.io/c/"},
+    {title: "typescript", icon: typescript, url: "https://devdocs.io/typescript/"},
+    {title: "sql", icon: sql, url: "https://www.postgresql.org/docs/16/reference.html"},
+    {title: "react", icon: react, url: "https://devdocs.io/react/"},
 ];
 
   
@@ -73,5 +77,5 @@ export interface AboutData {
       ]
     },
   
-    skills: ["Swift & iOS Development", "3D Modeling & Animation", "Full-Stack Development", "Data Analytics & Visualization"]
+    skills: ["Mobile & Web Development", "Full-Stack Development", "3D Modeling & Animation", "Data Analytics & Visualization"]
   };

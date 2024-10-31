@@ -10,6 +10,7 @@
     justify-content: center;
     backdrop-filter: blur(10px); /* Optional: adds a slight blur effect */
     box-sizing: border-box;
+    z-index: 10;
   }
 .nav-links {
     display: flex;
