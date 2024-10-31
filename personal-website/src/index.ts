@@ -4,9 +4,13 @@ import java from '../src/assets/java.png';
 import cpp from '../src/assets/cpp.png';
 import sql from '../src/assets/Postgresql.png';
 import python from '../src/assets/python.png';
-import c from './assets/c.png';
-import swift from './assets/swift.png';
-import react from './assets/react.png';
+import c from '../src/assets/c.png';
+import swift from '../src/assets/swift.png';
+import react from '../src/assets/react.png';
+
+import expressjs from '../src/assets/expressjs.png';
+import swiftui from '../src/assets/swiftui.png';
+import spring from '../src/assets/spring.png';
 
 export{
     profilePic,
@@ -17,5 +21,11 @@ export{
     c,
     cpp,
     swift,
-    react
+    react,
+}
+
+export{
+    expressjs,
+    swiftui,
+    spring,
 }

@@ -10,7 +10,7 @@ import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 const Home = () => {
   return (
     <div>
-      <Parallax pages ={2.25}>
+      <Parallax pages ={2.45}>
         <ParallaxLayer offset={0} speed={0.25} factor={3} style={{
             backgroundImage: `url(${background})`, // Correctly format the background image 
           }}

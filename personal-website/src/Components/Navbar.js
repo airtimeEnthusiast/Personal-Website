@@ -22,7 +22,7 @@ const Navbar = () => {
             </li>
             <li className="nav-item"><Link to="/contact">Contact</Link></li>
             <li className="nav-item dropdown">
-              <span>Vacation Trips</span>
+              <span>Interests</span>
               <ul className="dropdown-menu">
                 <li><Link to="/vacation/2021">2021</Link></li>
                 <li><Link to="/vacation/2022">2022</Link></li>

@@ -101,4 +101,10 @@
     height: 100px;
     padding: 10px;
   }
+
+  .framework-item {
+    width: 100px; /* Increased size */
+    height: 100px;
+    padding: 10px;
+  }
   

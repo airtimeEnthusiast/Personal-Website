@@ -1,6 +1,6 @@
 // src/data/aboutData.ts
 
-import { typescript , java, cpp, c, sql, python, swift,react} from "../../index.ts";
+import { typescript , java, cpp, c, sql, python, swift, swiftui, react, spring, expressjs} from "../../index.ts";
 
 export interface Experience {
     title: string;
@@ -24,6 +24,11 @@ export const languages = [
     {title: "react", icon: react, url: "https://devdocs.io/react/"},
 ];
 
+export const frameworks = [
+  {title: "swiftui", icon: swiftui, url: "https://www.swift.org" },
+  {title: "expressjs", icon: expressjs, url: "https://docs.oracle.com/en/java/"},
+  {title: "spring", icon: spring, url: "https://docs.oracle.com/en/java/"}
+];
   
 export interface AboutData {
     summary: string;

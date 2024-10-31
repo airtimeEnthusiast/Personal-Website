@@ -2,7 +2,7 @@
 import React from 'react';
 import './About.css';
 import { profilePic } from '../../index.ts';
-import { aboutData, languages } from './aboutData.ts';
+import { aboutData, languages, frameworks } from './aboutData.ts';
 
 const About = () => {
     return (
@@ -42,7 +42,18 @@ const About = () => {
             </div>
           ))}
         </div>
-  
+
+        <div className="resume-section">
+          <h2>Languages</h2>
+          <ul className="skills-list">
+          {languages.map((language, index) => (
+            <a href={language.url} target="_blank" rel="noopener noreferrer">
+            <img className='language-item' title={language.title} src={language.icon}/>
+            </a>
+          ))}
+        </ul>
+        </div>
+
         <div className="resume-section">
           <h2>Skills</h2>
           <ul className="skills-list">
@@ -53,11 +64,11 @@ const About = () => {
         </div>
 
         <div className="resume-section">
-          <h2>Languages</h2>
+          <h2>Frameworks</h2>
           <ul className="skills-list">
-          {languages.map((language, index) => (
-            <a href={language.url} target="_blank" rel="noopener noreferrer">
-            <img className='language-item' title={language.title} src={language.icon}/>
+          {frameworks.map((framework, index) => (
+            <a href={framework.url} target="_blank" rel="noopener noreferrer">
+            <img className='framework-item' title={framework.title} src={framework.icon}/>
             </a>
           ))}
         </ul>
