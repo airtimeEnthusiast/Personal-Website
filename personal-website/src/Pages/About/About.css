@@ -27,7 +27,6 @@
     margin-left: 20px; /* Ensure it’s spaced from the content */
   }
   
-  
   .summary {
     flex: 1; /* Allow text content to take the remaining space */
     max-width: 600px;
@@ -97,13 +96,13 @@
   }
 
   .language-item {
-    width: 100px; /* Increased size */
+    width: 100px;
     height: 100px;
     padding: 10px;
   }
 
   .framework-item {
-    width: 100px; /* Increased size */
+    width: 100px; 
     height: 100px;
     padding: 10px;
   }

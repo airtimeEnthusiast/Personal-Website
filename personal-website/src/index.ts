@@ -1,3 +1,4 @@
+// Langauge images
 import profilePic from '../src/assets/profile_image.jpg'
 import typescript from '../src/assets/typescript.png';
 import java from '../src/assets/java.png';
@@ -8,6 +9,7 @@ import c from '../src/assets/c.png';
 import swift from '../src/assets/swift.png';
 import react from '../src/assets/react.png';
 
+// Framework images
 import expressjs from '../src/assets/expressjs.png';
 import swiftui from '../src/assets/swiftui.png';
 import spring from '../src/assets/spring.png';

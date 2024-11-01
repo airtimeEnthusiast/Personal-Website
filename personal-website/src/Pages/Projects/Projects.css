@@ -1,0 +1,85 @@
+
+.project-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #333;
+    font-size: 2rem; /* Adjust the size as needed */
+}
+
+.projects-content li {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;            /* Remove any default padding */
+    margin: 0;             /* Remove any default margin */
+  }
+
+.projects-content {
+    display: flex;
+    justify-content: space-between; /* Space between text and image */
+    align-items: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-bottom: 40px;
+  }
+
+  .projects-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px;
+    margin-top:60px;
+    width: 90%;
+}
+
+.title-icon-container {
+    display: flex;
+    justify-content: space-between; /* Space between the title and icon */
+    align-items: center;
+  }
+  
+
+.projects-title {
+    font-size: 2rem;
+    margin: 0; /* Remove default margin */
+}
+
+.description-container {
+    width: 60%; /* Set the width to half of the parent container */
+    text-align: left; /* Align text to the left */
+  }
+
+  .project_social-icons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-right: 12px; /* Space between icons */
+  }
+  
+  .project_social-icons a {
+    font-size: 1.6rem;
+    color: #233;
+    text-decoration: none;
+    font-size: 2.5rem;
+  }
+  
+  .project_social-icons a:hover {
+    color: #555;
+  }
+
+  .tech-item-container{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .tech-item {
+    width: 50px; /* Increased size */
+    height: 50px;
+    margin-right: 10px; /* Space between icons */
+  }
+
+  .dropdown-content {
+    padding: 10px 0;
+    transition: max-height 0.3s ease;
+  }
