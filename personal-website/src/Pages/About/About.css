@@ -2,11 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 20px;
+    padding: 20px 80px;
     margin-top:60px;
   }
   /*background-image: url('./assets/homebackground.jpg'); /* Path to your image */
-
+  
   .about-content {
     display: flex;
     justify-content: space-between; /* Space between text and image */
