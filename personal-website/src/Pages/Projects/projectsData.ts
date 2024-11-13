@@ -16,8 +16,22 @@ export interface Project {
   technologies: string[]
 }
 
+// Utility function to get the pages value based on the category
+export const getPagesForCategory = (category: string): number => {
+  switch (category) {
+    case 'programming':
+      return 1.7;
+    case '3dmodeling':
+      return 0.5;
+    case 'other':
+      return 1.2;
+    default:
+      return 1.0; // Default fallback value
+  }
+};
+
 export const projectsData: { [key: string]: Project[] } = {
-  programming: [
+  Coding: [
     {
       id: 1, title: 'Ride Experience', description: "An iOS App that logs data from the iPhone's onboard sensors, enabling users to analyze ride dynamics. It also tracks theme park wait times and provides detailed theme park-related statistics.",
       link: 'https://github.com/airtimeEnthusiast/Ride_Experience',
@@ -61,7 +75,7 @@ export const projectsData: { [key: string]: Project[] } = {
 
 
   ],
-  "3dmodeling": [
+  "3D-Modeling": [
     {
       id: 1, title: '3D Model 1', description: 'Description of 3D Model 1',
       link: 'https://www.linkedin.com/in/yourprofile',
@@ -74,7 +88,7 @@ export const projectsData: { [key: string]: Project[] } = {
     },
     // Add more 3D modeling projects here
   ],
-  other: [
+  Other: [
     {
       id: 1, title: 'No Limits 2 Roller Coaster Simulation', description: 'Description of Other Project 1',
       link: 'https://www.linkedin.com/in/yourprofile',

@@ -1,27 +1,51 @@
 // src/Pages/Projects.js
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { projectsData, Project } from './projectsData.ts';
-import './Projects.css'
+import './Projects.css';
 import { FaGithub } from 'react-icons/fa';
-import { Parallax, ParallaxLayer } from '@react-spring/parallax'
-import background from '../../assets/homebackground.jpg'
+import { Parallax, ParallaxLayer } from '@react-spring/parallax';
+import background from '../../assets/homebackground.jpg';
 
 const Projects = () => {
   const { category } = useParams();
-
-  // Get the projects for the given category
   const projects: Project[] = projectsData[category] || [];
+  const [pages, setPages] = useState(1.9);
+  const projectsContainerRef = useRef(null);
+
+  useEffect(() => {
+    const updatePageCount = () => {
+      if (projectsContainerRef.current) {
+        const contentHeight = projectsContainerRef.current.offsetHeight;
+        const viewportHeight = window.innerHeight;
+
+        // Calculate the new page count based on content height and viewport height
+        const calculatedPages = Math.max(1, contentHeight / viewportHeight);
+        setPages(calculatedPages);
+
+        // Log for debugging
+        console.log('Content Height:', contentHeight);
+        console.log('Viewport Height:', viewportHeight);
+        console.log('Calculated Pages:', calculatedPages);
+      }
+    };
+
+    updatePageCount(); // Initial page count calculation
+
+    // Recalculate on window resize
+    window.addEventListener('resize', updatePageCount);
+    return () => window.removeEventListener('resize', updatePageCount);
+  }, [projects]);
 
   return (
     <div>
-      <Parallax pages={1.9}>
+      <Parallax pages={pages}>
         <ParallaxLayer offset={0} speed={0.25} factor={3} style={{
-          backgroundImage: `url(${background})`, // Correctly format the background image 
+          backgroundImage: `url(${background})`,
         }}
         />
         <ParallaxLayer offset={0} speed={1}>
-          <div className="projects-container">
+          <div ref={projectsContainerRef} className="projects-container">
             <h1 className="project-title">Projects - {category}</h1>
             <ul>
               {projects.map((project) => (
@@ -49,8 +73,8 @@ const Projects = () => {
         </ParallaxLayer>
       </Parallax>
     </div>
-
   );
 };
 
 export default Projects;
+
