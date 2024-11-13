@@ -7,7 +7,7 @@ import Projects from './Pages/Projects/Projects';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Personal-Website"> {/* Add basename here */}
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
