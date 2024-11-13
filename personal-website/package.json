@@ -1,7 +1,7 @@
 {
   "name": "personal-website",
   "version": "0.1.0",
-  "homepage": "http://airtimeEnthusiast.github.io/Personal-Website",
+  "homepage": "https://airtimeEnthusiast.github.io/Personal-Website",
   "private": true,
   "dependencies": {
     "@react-spring/parallax": "^9.7.5",
@@ -15,7 +15,7 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
-  
+
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",
