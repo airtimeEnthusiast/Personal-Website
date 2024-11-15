@@ -6,6 +6,7 @@ import Title from '../Title/Title';
 import background from './assets/homebackground.jpg'
 
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
+import { useWindowSize } from 'react-use'
 
 const Home = () => {
   return (

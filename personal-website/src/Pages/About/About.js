@@ -4,78 +4,96 @@ import './About.css';
 import { profilePic } from '../../index.ts';
 import { aboutData, languages, frameworks } from './aboutData.ts';
 
+const Section = ({ title, content }) => (
+  <div className="resume-section">
+    <h2>{title}</h2>
+    {content}
+  </div>
+);
+
+const SkillsList = ({ items, className }) => (
+  <ul className="skills-list">
+    {items.map((item, index) => (
+      <a href={item.url} target="_blank" rel="noopener noreferrer" key={index}>
+        <img
+          className={className}
+          title={item.title}
+          src={item.icon}
+          alt={item.title}
+        />
+      </a>
+    ))}
+  </ul>
+);
+
 const About = () => {
-    return (
-      <div className="about-container">
-        <div className="about-content">
-          <div className="summary">
-            <h1>Summary</h1>
-            <p>{aboutData.summary}</p>
+  return (
+    <div className="about-container">
+
+
+      <Section title = "Summary"
+        content={
+          <div className="summary-section">
+              <p>{aboutData.summary}</p>
+            <img
+              src={profilePic}
+              alt="Profile"
+              className="profile-picture"
+            />
           </div>
-          <img src={profilePic} alt="Profile" className="profile-picture" />
-        </div>
-  
-        {/* Resume Sections */}
-        <div className="resume-section">
-          <h2>Education</h2>
-          <p>{aboutData.education}</p>
-        </div>
-  
-        <div className="resume-section">
-          <h2>{aboutData.engineeringExperience.title}</h2>
-          {aboutData.engineeringExperience.experiences.map((experience, index) => (
+        }
+      />
+
+      <Section title="Education" content={<p>{aboutData.education}</p>} />
+
+      <Section
+        title={aboutData.engineeringExperience.title}
+        content={aboutData.engineeringExperience.experiences.map(
+          (experience, index) => (
             <div className="experience" key={index}>
               <h3>{experience.title}</h3>
               <span className="experience-date">{experience.date}</span>
               <p>{experience.description}</p>
             </div>
-          ))}
-        </div>
-  
-        <div className="resume-section">
-          <h2>{aboutData.customerExperience.title}</h2>
-          {aboutData.customerExperience.experiences.map((experience, index) => (
+          )
+        )}
+      />
+
+      <Section
+        title={aboutData.customerExperience.title}
+        content={aboutData.customerExperience.experiences.map(
+          (experience, index) => (
             <div className="experience" key={index}>
               <h3>{experience.title}</h3>
               <span className="experience-date">{experience.date}</span>
               <p>{experience.description}</p>
             </div>
-          ))}
-        </div>
+          )
+        )}
+      />
 
-        <div className="resume-section">
-          <h2>Languages</h2>
-          <ul className="skills-list">
-          {languages.map((language, index) => (
-            <a href={language.url} target="_blank" rel="noopener noreferrer">
-            <img className='language-item' title={language.title} src={language.icon}/>
-            </a>
-          ))}
-        </ul>
-        </div>
+      <Section
+        title="Languages"
+        content={<SkillsList items={languages} className="language-item" />}
+      />
 
-        <div className="resume-section">
-          <h2>Skills</h2>
+      <Section
+        title="Skills"
+        content={
           <ul className="skills-list">
             {aboutData.skills.map((skill, index) => (
               <li key={index}>{skill}</li>
             ))}
           </ul>
-        </div>
+        }
+      />
 
-        <div className="resume-section">
-          <h2>Frameworks</h2>
-          <ul className="skills-list">
-          {frameworks.map((framework, index) => (
-            <a href={framework.url} target="_blank" rel="noopener noreferrer">
-            <img className='framework-item' title={framework.title} src={framework.icon}/>
-            </a>
-          ))}
-        </ul>
-        </div>
+      <Section
+        title="Frameworks"
+        content={<SkillsList items={frameworks} className="framework-item" />}
+      />
+    </div>
+  );
+};
 
-      </div>
-    );
-  };
-  
-  export default About;
+export default About;

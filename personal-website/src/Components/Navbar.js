@@ -36,7 +36,7 @@ const Navbar = () => {
             <a href="https://www.instagram.com/awstin_write/profilecard/?igsh=eWVjYzdiZnhlYTdo" target="_blank" rel="noopener noreferrer" className="icon">
               <FaInstagram />
             </a>
-            <a href="https://your-resume-link.com" target="_blank" rel="noopener noreferrer" className="icon">
+            <a href="https://drive.google.com/file/d/1Ky7B_WEVjAgHBU2sqLKrxpyJkqPaU3jW/view?usp=share_link" target="_blank" rel="noopener noreferrer" className="icon">
             <FaFileAlt />
             </a>
             <a href="https://www.youtube.com/@D00rHandleMedia" target="_blank" rel="noopener noreferrer" className="icon">
