@@ -81,6 +81,14 @@
     font-size: 1.1em;
   }
   
+/* Hamburger Icon */
+.nav-icon {
+  display: none;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+}
+
 .dropdown-menu {
     display: none;
     position: absolute;
@@ -104,3 +112,42 @@
 .nav-item:hover .dropdown-menu {
     display: block;
   }
+
+  /* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .nav-container {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
+  }
+
+  .nav-container.active {
+    display: flex;
+  }
+
+  /* Show the hamburger icon on mobile */
+  .nav-icon {
+    display: block;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 10px;
+    list-style-type: none;
+  }
+
+  .dropdown-menu {
+    position: static;
+  }
+
+  .nav-item a {
+    font-size: 1.2rem;
+  }
+}

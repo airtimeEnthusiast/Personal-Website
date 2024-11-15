@@ -1,16 +1,26 @@
 // src/Components/Navbar.js
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import { FaInstagram, FaLinkedin, FaYoutube, FaGithub, FaFileAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
+import { FaInstagram, FaLinkedin, FaYoutube, FaGithub, FaFileAlt, FaPhone, FaEnvelope, FaTimes, FaBars } from 'react-icons/fa';
 
 
 // <li><Link to="/projects/Other">Other</Link></li>
 
 const Navbar = () => {
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
     return (
       <header className="navbar">
         <div className="header-top">
+        <div className="nav-icon" onClick={toggleMenu}>
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </div>
         </div>
         <nav className="nav-container">
           <ul className="nav-list">

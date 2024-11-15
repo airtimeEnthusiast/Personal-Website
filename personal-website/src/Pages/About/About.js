@@ -31,10 +31,11 @@ const About = () => {
     <div className="about-container">
 
 
-      <Section title = "Summary"
+      <Section
+        title="Summary"
         content={
           <div className="summary-section">
-              <p>{aboutData.summary}</p>
+            <p className="summary-text">{aboutData.summary}</p>
             <img
               src={profilePic}
               alt="Profile"
