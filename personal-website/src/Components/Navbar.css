@@ -155,11 +155,12 @@
 
 @media screen and (max-width: 390px) {
   .social-icons {
-    gap: 5px; /* Reduce spacing for smaller screens */
+    gap: 4px; /* Reduce spacing for smaller screens */
+    font-size: 1.0rem; /* Slightly smaller icon for narrow screens */
   }
 
   .nav-icon {
-    font-size: 1.5rem; /* Slightly smaller icon for narrow screens */
+    font-size: 1.6rem; /* Slightly smaller icon for narrow screens */
     right: 15px;
   }
 }
