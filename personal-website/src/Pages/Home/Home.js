@@ -1,41 +1,26 @@
 // src/Pages/Home/Home.js
-import React, { useEffect, useState } from "react";
+import React from 'react';
 import './Home.css';
 import About from '../About/About';
 import Title from '../Title/Title';
 import background from './assets/homebackground.jpg'
 
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
+import { useWindowSize } from 'react-use'
 
 const Home = () => {
-
-  const [pages, setPages] = useState(1);
-  useEffect(() => {
-    const updatePages = () => {
-      const isMobile = window.innerWidth <= 390;
-      setPages(isMobile ? 2 : 1.5); // Adjust based on content size
-    };
-
-    updatePages(); // Initial calculation
-    window.addEventListener("resize", updatePages);
-
-    return () => window.removeEventListener("resize", updatePages);
-  }, []);
-
-
-
   return (
     <div>
-      <Parallax pages={pages}>
+      <Parallax pages ={2.65}>
         <ParallaxLayer offset={0} speed={0.25} factor={3} style={{
-          backgroundImage: `url(${background})`, // Correctly format the background image 
-        }}
+            backgroundImage: `url(${background})`, // Correctly format the background image 
+          }}
         />
         <ParallaxLayer offset={0} speed={1}>
-          <Title />
+          <Title/>
         </ParallaxLayer>
         <ParallaxLayer offset={0.95} speed={1}>
-          <About />
+            <About/>
         </ParallaxLayer>
       </Parallax>
     </div>
