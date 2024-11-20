@@ -23,6 +23,7 @@
   color: #333;
   cursor: pointer;
   top: 10px;
+  z-index: 11; /* Ensure it stays on top */
 }
 
 .nav-container {
@@ -149,5 +150,16 @@
 
   .dropdown-menu {
     position: static;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .social-icons {
+    gap: 5px; /* Reduce spacing for smaller screens */
+  }
+
+  .nav-icon {
+    font-size: 1.5rem; /* Slightly smaller icon for narrow screens */
+    right: 15px;
   }
 }
