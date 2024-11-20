@@ -12,26 +12,10 @@ const Projects = () => {
 
   // Get the projects for the given category
   const projects: Project[] = projectsData[category] || [];
-  const [pages, setPages] = useState(1);
-
-  // Dynamically calculate the number of pages
-  useEffect(() => {
-    const updatePages = () => {
-      const isMobile = window.innerWidth <= 768;
-      const projectsPerPage = isMobile ? 2 : 4; // Projects per page for mobile vs desktop
-      const calculatedPages = Math.ceil(projectsData.length / projectsPerPage);
-      setPages(calculatedPages || 1); // Ensure at least 1 page
-    };
-
-    updatePages();
-    window.addEventListener("resize", updatePages);
-
-    return () => window.removeEventListener("resize", updatePages);
-  }, []);
 
   return (
     <div>
-      <Parallax pages={pages}>
+      <Parallax pages={1.95}>
         <ParallaxLayer offset={0} speed={0.25} factor={3} style={{
           backgroundImage: `url(${background})`, // Correctly format the background image 
         }}
