@@ -84,3 +84,26 @@
     padding: 10px 0;
     transition: max-height 0.3s ease;
   }
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .projects-content {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .title-icon-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tech-item-container {
+    justify-content: flex-start;
+  }
+
+  .parallax-layer {
+    overflow-y: scroll; /* Enable vertical scrolling for mobile screens */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  }
+}

@@ -1,51 +1,43 @@
 // src/Pages/Projects.js
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { projectsData, Project } from './projectsData.ts';
-import './Projects.css';
+import { projectsData, Project, getPagesForCategory } from './projectsData.ts';
+import './Projects.css'
 import { FaGithub } from 'react-icons/fa';
-import { Parallax, ParallaxLayer } from '@react-spring/parallax';
-import background from '../../assets/homebackground.jpg';
+import { Parallax, ParallaxLayer } from '@react-spring/parallax'
+import background from '../../assets/homebackground.jpg'
 
 const Projects = () => {
   const { category } = useParams();
+
+  // Get the projects for the given category
   const projects: Project[] = projectsData[category] || [];
-  const [pages, setPages] = useState(1.9);
-  const projectsContainerRef = useRef(null);
+  const [pages, setPages] = useState(1);
 
+  // Dynamically calculate the number of pages
   useEffect(() => {
-    const updatePageCount = () => {
-      if (projectsContainerRef.current) {
-        const contentHeight = projectsContainerRef.current.offsetHeight;
-        const viewportHeight = window.innerHeight;
-
-        // Calculate the new page count based on content height and viewport height
-        const calculatedPages = Math.max(1, contentHeight / viewportHeight);
-        setPages(calculatedPages);
-
-        // Log for debugging
-        console.log('Content Height:', contentHeight);
-        console.log('Viewport Height:', viewportHeight);
-        console.log('Calculated Pages:', calculatedPages);
-      }
+    const updatePages = () => {
+      const isMobile = window.innerWidth <= 768;
+      const projectsPerPage = isMobile ? 2 : 4; // Projects per page for mobile vs desktop
+      const calculatedPages = Math.ceil(projectsData.length / projectsPerPage);
+      setPages(calculatedPages || 1); // Ensure at least 1 page
     };
 
-    updatePageCount(); // Initial page count calculation
+    updatePages();
+    window.addEventListener("resize", updatePages);
 
-    // Recalculate on window resize
-    window.addEventListener('resize', updatePageCount);
-    return () => window.removeEventListener('resize', updatePageCount);
-  }, [projects]);
+    return () => window.removeEventListener("resize", updatePages);
+  }, []);
 
   return (
     <div>
       <Parallax pages={pages}>
         <ParallaxLayer offset={0} speed={0.25} factor={3} style={{
-          backgroundImage: `url(${background})`,
+          backgroundImage: `url(${background})`, // Correctly format the background image 
         }}
         />
         <ParallaxLayer offset={0} speed={1}>
-          <div ref={projectsContainerRef} className="projects-container">
+          <div className="projects-container">
             <h1 className="project-title">Projects - {category}</h1>
             <ul>
               {projects.map((project) => (
@@ -77,4 +69,3 @@ const Projects = () => {
 };
 
 export default Projects;
-

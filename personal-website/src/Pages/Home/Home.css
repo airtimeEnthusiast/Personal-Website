@@ -15,3 +15,15 @@
   align-items: center;
   justify-content: center;
 }
+
+@media screen and (max-width: 768px) {
+  .parallax-layer {
+    overflow-y: scroll; /* Enable vertical scrolling for mobile screens */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  }
+
+  .home-container,
+  .projects-container {
+    padding-bottom: 30px; /* Ensure there's space for scrolling */
+  }
+}
