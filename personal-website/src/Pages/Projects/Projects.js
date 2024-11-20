@@ -1,7 +1,7 @@
 // src/Pages/Projects.js
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { projectsData, Project, getPagesForCategory } from './projectsData.ts';
+import { projectsData, Project } from './projectsData.ts';
 import './Projects.css'
 import { FaGithub } from 'react-icons/fa';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
