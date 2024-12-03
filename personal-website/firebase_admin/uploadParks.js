@@ -1,7 +1,7 @@
 const admin = require("firebase-admin");
 
 // Load the service account key
-const serviceAccount = require("../../firebase_admin/personal-site-64fd2-firebase-adminsdk-bwtj9-0bbac7acae.json");
+const serviceAccount = require("./personal-site-64fd2-firebase-adminsdk-bwtj9-0bbac7acae.json");
 
 // Initialize the Firebase Admin SDK
 admin.initializeApp({

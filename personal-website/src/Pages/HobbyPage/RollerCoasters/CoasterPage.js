@@ -48,7 +48,7 @@ const CoasterPage = () => {
             name={coaster.Name}
             type={coaster.Material}
             image={coaster.image}
-            rcdbLink={coaster.ID}
+            rcdbLink={coaster.Link}
           />
         ))}
       </div>

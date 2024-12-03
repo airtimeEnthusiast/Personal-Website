@@ -1,5 +1,5 @@
 const admin = require("firebase-admin");
-const serviceAccount = require("../../firebase_admin/personal-site-64fd2-firebase-adminsdk-bwtj9-0bbac7acae.json");
+const serviceAccount = require("./personal-site-64fd2-firebase-adminsdk-bwtj9-0bbac7acae.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -7,7 +7,7 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-const coasters = require("../../firebase_admin/db_upload/Visited_Coasterlist.json");
+const coasters = require("./db_upload/Visited_Coasterlist.json");
 
 const uploadCoasters = async () => {
   const batch = db.batch();
