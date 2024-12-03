@@ -27,8 +27,8 @@ const CoasterPage = () => {
 
   // Statistics for display
   const totalCoasters = coasters.length;
-  const woodenCoasters = coasters.filter((coaster) => coaster.material === "Wood").length;
-  const steelCoasters = coasters.filter((coaster) => coaster.material === "Steel").length;
+  const woodenCoasters = coasters.filter((coaster) => coaster.Material === "Wood").length;
+  const steelCoasters = coasters.filter((coaster) => coaster.Material === "Steel").length;
 
   return (
     <div className="coaster-page">
@@ -45,10 +45,10 @@ const CoasterPage = () => {
         {coasters.map((coaster, index) => (
           <CoasterCard
             key={index}
-            name={coaster.name}
-            type={coaster.material}
+            name={coaster.Name}
+            type={coaster.Material}
             image={coaster.image}
-            rcdbLink={coaster.id}
+            rcdbLink={coaster.ID}
           />
         ))}
       </div>
