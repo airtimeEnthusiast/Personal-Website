@@ -11,7 +11,7 @@ admin.initializeApp({
 const db = admin.firestore();
 
 // Load parks.json
-const parksData = require("../../firebase_admin/db_upload/Visited_Parklist.json");
+const parksData = require("./db_upload/Visited_Parklist.json");
 
 // Upload data to the "parks" collection
 const uploadParks = async () => {
@@ -20,7 +20,7 @@ const uploadParks = async () => {
 
     parksData.forEach((park) => {
       // Set document ID to the park's ID or auto-generate one
-      const parkRef = db.collection("parks").doc(park.id);
+      const parkRef = db.collection("parks").doc(park.ID);
       batch.set(parkRef, park);
     });
 

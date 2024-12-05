@@ -1,3 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x:
+  hidden; /* Prevent horizontal scrolling */
+}
 
 .project-title {
     display: flex;
@@ -25,13 +35,18 @@
     background: white;
   }
 
-  .projects-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 40px;
-    margin-top:60px;
-    width: 90%;
+/* Projects Container */
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically (if needed) */
+  width: 100%; /* Ensure it spans the full width */
+  padding: 20px 40px;
+  margin-top:60px;
+  max-width: 1200px; /* Optional: Limit the maximum width for large screens */
+  overflow: hidden; /* Prevent overflow issues */
+  box-sizing: border-box; /* Include padding and borders in width calculation */
 }
 
 .title-icon-container {
@@ -87,6 +102,11 @@
 
 /* Responsive Adjustments */
 @media screen and (max-width: 768px) {
+
+  .projects-container {
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+
   .projects-content {
     flex-direction: column;
     align-items: flex-start;
@@ -96,14 +116,34 @@
   .title-icon-container {
     flex-direction: column;
     align-items: flex-start;
+    margin-bottom: 10px;
   }
 
   .tech-item-container {
     justify-content: flex-start;
   }
 
+  .tech-item {
+    width: 40px; /* Smaller icons for mobile */
+    height: 40px;
+    margin-right: 5px; /* Reduce spacing */
+  }
+
+  .description-container {
+    width: 100%; /* Full width on mobile */
+    font-size: 0.9rem; /* Slightly smaller font size */
+  }
+
+  .title, .about {
+    padding: 20px;
+    font-size: 1rem; /* Adjust font size */
+  }
+
+    /* Adjust Parallax Layer */
   .parallax-layer {
-    overflow-y: scroll; /* Enable vertical scrolling for mobile screens */
+    width: 100vw;
+    height: auto; /* Allow height to adjust dynamically */
+    overflow-y: scroll; /* Enable scrolling for smaller devices */
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
   }
 }
