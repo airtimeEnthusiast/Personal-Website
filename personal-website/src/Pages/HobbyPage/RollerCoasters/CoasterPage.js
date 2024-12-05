@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
-import CoasterCard from "./CoasterCard";
+import CoasterCard from "../../../Components/CoasterCard";
 import { db } from "../../../config/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import "./CoasterPage.css";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
+import "leaflet/dist/leaflet.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationCrosshairs } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
-import "leaflet/dist/leaflet.css";
 
 // Fix for default Leaflet icon path issue
 delete L.Icon.Default.prototype._getIconUrl;
@@ -37,7 +38,9 @@ const ResetMapButton = ({ center, zoom }) => {
   );
 };
 
+// Coaster home page content
 const CoasterPage = () => {
+  const navigate = useNavigate();
   const [coasters, setCoasters] = useState([]);
   const [parks, setParks] = useState([]);
   const mapCenter = [37.8, -96]; // Center on the US
@@ -97,7 +100,7 @@ const CoasterPage = () => {
       <div className="map-section">
         <h2>Visited Parks</h2>
         <div className="map-container">
-        <MapContainer
+          <MapContainer
             center={mapCenter}
             zoom={mapZoom}
             scrollWheelZoom={true}
@@ -107,7 +110,7 @@ const CoasterPage = () => {
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-             <ResetMapButton center={mapCenter} zoom={mapZoom} />
+            <ResetMapButton center={mapCenter} zoom={mapZoom} />
             {/* Render markers */}
             {parks
               .filter((park) => park.latitude != null && park.longitude != null) // Only valid parks
@@ -124,24 +127,22 @@ const CoasterPage = () => {
                     State: {park.State}
                     <br />
                     Coasters: {park.Coaster_IDs?.length || 0}
+                    <br />
+                    <button
+                      onClick={() =>
+                        navigate(`/park/${park.id}`, {
+                          state: { parkName: park.Name, coasterIds: park.Coaster_IDs },
+                        })
+                      }
+                      className="view-coasters-button"
+                    >
+                      View Coasters
+                    </button>
                   </Popup>
                 </Marker>
               ))}
           </MapContainer>
         </div>
-      </div>
-
-      {/* Coaster List */}
-      <div className="coaster-list">
-        {coasters.map((coaster, index) => (
-          <CoasterCard
-            key={index}
-            name={coaster.Name}
-            type={coaster.Material}
-            image={coaster.image}
-            rcdbLink={coaster.Link}
-          />
-        ))}
       </div>
     </div >
   );
