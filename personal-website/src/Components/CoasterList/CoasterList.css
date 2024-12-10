@@ -1,0 +1,76 @@
+.coaster-list {
+    max-height: 400px;
+    overflow-y: auto;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .coaster-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .sort-options {
+    display: flex;
+    align-items: center;
+  }
+  
+  .sort-options label {
+    margin-right: 10px;
+  }
+  
+  .coaster-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .coaster-item {
+    position: relative;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+  }
+
+  .coaster-item:last-child {
+    border-bottom: none;
+  }
+  
+  .rank-bubble {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .coaster-content {
+    margin-left: 50px; /* Adjust to avoid overlapping with rank bubble */
+  }
+  
+  .coaster-content h2 {
+    margin: 0 0 10px;
+    font-size: 18px;
+  }
+  
+  .coaster-content p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+  }
+  

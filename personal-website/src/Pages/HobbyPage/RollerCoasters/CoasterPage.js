@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import CoasterCard from "../../../Components/CoasterList/CoasterCard";
+import CoasterCard from "../../../Components/Cards/CoasterCard";
 import { db } from "../../../config/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import "./CoasterPage.css";
@@ -15,8 +15,8 @@ import InfoCard from "../../../Components/Cards/InfoCard";
 import LineChart from "../../../Components/Charts/LineChart";
 import BarChart from "../../../Components/Charts/BarChart";
 import CoasterSlideshow from "../../../Components/CoasterSlideshow";
-import CoasterList from "../../../Components/CoasterList"; // Scrollable coaster list component
-
+import CoasterList from "../../../Components/CoasterList/CoasterList"; // Scrollable coaster list component
+import customRankings from "../../../Components/CoasterList/Rankings";
 
 // Fix for default Leaflet icon path issue
 delete L.Icon.Default.prototype._getIconUrl;
@@ -50,19 +50,41 @@ const CoasterPage = () => {
   const navigate = useNavigate();
   const [coasters, setCoasters] = useState([]);
   const [parks, setParks] = useState([]);
-  const mapCenter = [40, -96]; // Center on the US
 
-  const mapZoom = 3;
+   // Map display
+  const mapCenter = [50, -96]; // Center on the US
+  const mapZoom = 3.4;
+
+  // Statistics for display
+  const totalCoasters = coasters.length;
+  const woodenCoasters = coasters.filter((coaster) => coaster.Material === "Wood").length;
+  const steelCoasters = coasters.filter((coaster) => coaster.Material === "Steel").length;
+  const [sortOrder, setSortOrder] = useState("rank"); // Default sort order
+
+
 
   // Fetch coasters from Firestore on component mount
   useEffect(() => {
     const fetchCoasters = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, "coasters"));
-        const coasterData = querySnapshot.docs.map((doc) => doc.data());
+        const coasterData = querySnapshot.docs.map((doc) => {
+          const data = doc.data();
+          
+          // Find rank by matching name and park
+          const rank = customRankings.findIndex(
+            (ranking) => ranking.name === data.Name && ranking.park === data.Park
+          ) + 1;
+    
+          return {
+            id: doc.id,
+            rank: rank > 0 ? rank : Infinity, // Assign rank or Infinity if not in customRankings
+            ...data,
+          };
+        });
         setCoasters(coasterData);
       } catch (error) {
-        console.error("Error fetching coasters: ", error);
+        console.error("Error fetching coasters:", error);
       }
     };
 
@@ -85,11 +107,16 @@ const CoasterPage = () => {
     fetchParks();
   }, []);
 
-  // Statistics for display
-  const totalCoasters = coasters.length;
-  const woodenCoasters = coasters.filter((coaster) => coaster.Material === "Wood").length;
-  const steelCoasters = coasters.filter((coaster) => coaster.Material === "Steel").length;
-  const coastersRanked = Array.from({ length: 205 }, (_, i) => `Coaster ${i + 1}`);
+  // Sort coasters based on selected sort order
+  const sortedCoasters = [...coasters].sort((a, b) => {
+    if (sortOrder === "rank") return a.rank - b.rank; // Sort by rank ascending
+    if (sortOrder === "name") return a.Name.localeCompare(b.Name); // Sort alphabetically by name
+    if (sortOrder === "speed") return b.Speed - a.Speed; // Sort by speed descending
+    if (sortOrder === "height") return b.Height - a.Height; // Sort by height descending
+    if (sortOrder === "length") return b.Length - a.Length; // Sort by length descending
+    return 0;
+  });
+
 
   // Data for cards
   const fastestCoaster =
@@ -118,8 +145,8 @@ const CoasterPage = () => {
     return acc;
   }, {});
 
-  // Process data for top 6 or 10 manufacturers
-  const topN = 20; // Change this to 10 if needed
+  // Process data for top most ridden manufactured 
+  const topN = 20;
   const sortedManufacturers = Object.entries(manufacturersData)
     .sort(([, countA], [, countB]) => countB - countA); // Sort by count descending
   const topManufacturers = sortedManufacturers.slice(0, topN);
@@ -183,10 +210,10 @@ const CoasterPage = () => {
       </div>
 
       <BarChart
-          title="Manufacturers"
-          dataLabels={manufacturerLabels}
-          dataValues={manufacturerValues}
-        />
+        title="Manufacturers"
+        dataLabels={manufacturerLabels}
+        dataValues={manufacturerValues}
+      />
 
 
       <div className="map-charts-container">
@@ -236,10 +263,11 @@ const CoasterPage = () => {
         />
       </div>
 
-      <div className="ranking-section">
-        <h2>Coaster Rankings</h2>
-        <CoasterList coasters={coastersRanked} />
-      </div>
+      <CoasterList
+        coasters={sortedCoasters} // Pass sorted coasters
+        sortOrder={sortOrder}     // Pass sortOrder
+        setSortOrder={setSortOrder} // Pass setSortOrder
+      />
     </div>
 
   );
