@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import CoasterCard from "./Cards/CoasterCard";
+import CoasterCard from "../Components/Cards/InfoCard";
 import "./ParkCoastersPage.css";
 import "./Charts/PieChart.css"; // Import CSS for PieChart if needed
 import PieChart from "./Charts/PieChart"; // Correctly import the component

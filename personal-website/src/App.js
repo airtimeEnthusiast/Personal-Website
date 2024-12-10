@@ -6,6 +6,7 @@ import About from './Pages/About/About';
 import Projects from './Pages/Projects/Projects';
 import CoasterPage from './Pages/HobbyPage/RollerCoasters/CoasterPage';
 import ParkCoastersPage from "./Components/ParkCoastersPage";
+//import UploadPages from "./Pages/Other/uploadPhotos";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/projects/:category" element={<Projects />} />
         <Route path="/about" element={<About />} />
-        <Route path="/roller-coasters" element={<CoasterPage />} />
+        <Route path="/hobbies/roller-coasters" element={<CoasterPage />} />
+        {/*<Route path="/uploadPhotos" element={<UploadPages/>}/>*/}
         <Route path="/park/:id" element={<ParkCoastersPage />} />
       </Routes>
     </Router>

@@ -1,0 +1,40 @@
+.info-card {
+    margin: 10px auto;
+    padding: 15px;
+    max-width: 300px;
+    border: 2px solid rgb(193,193,193);
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .info-card h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .info-card p {
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  .info-card .info-card-value {
+    font-size: 20px;
+    font-weight: bold;
+    color: #007BFF;
+    margin-top: 5px;
+  }
+  
+  .info-card .info-card-unit {
+    font-size: 14px;
+    font-weight: normal;
+    color: #888;
+  }

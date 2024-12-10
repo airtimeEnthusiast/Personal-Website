@@ -28,11 +28,14 @@ const Navbar = () => {
   return (
     <header className="navbar">
       <div className="header-top">
+
         {/* Hamburger Icon */}
         <div className="nav-icon" onClick={toggleMenu}>
           {isOpen ? <FaTimes /> : <FaBars />}
         </div>
       </div>
+
+      {/* Nav Containers */}
       <nav className={`nav-container ${isOpen ? 'active' : ''}`}>
         <ul className="nav-list">
           <li className="nav-item">
@@ -40,6 +43,8 @@ const Navbar = () => {
               Home
             </Link>
           </li>
+
+          {/* Nav Dropdown Projects */}
           <li className="nav-item dropdown">
             <span>Projects</span>
             <ul className="dropdown-menu">
@@ -53,23 +58,37 @@ const Navbar = () => {
                   href="https://github.com/airtimeEnthusiast/Blender-Renders"
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={closeMenu}
-                >
+                  onClick={closeMenu}>
                   3D Modeling
                 </a>
               </li>
             </ul>
           </li>
-          <li className="nav-item">
-            <Link to="/roller-coasters" onClick={closeMenu}>
-              Roller Coasters
-            </Link>
+
+          {/* Nav Hobbies Projects */}
+          <li className="nav-item dropdown">
+            <span>Hobbies</span>
+            <ul className="dropdown-menu">
+              <li>
+                <Link to="/hobbies/roller-coasters" onClick={closeMenu}>
+                  Roller Coasters  
+                </Link>
+              </li>
+              <li>
+                <Link to="/hobbies/mountain-biking" onClick={closeMenu}>
+                  Mountain Biking 
+                </Link>
+              </li>
+            </ul>
           </li>
+
+        {/*}
           <li className="nav-item">
-            <Link to="/mountain-biking" onClick={closeMenu}>
-              Mountain Biking
+            <Link to="uploadphotos" onClick={closeMenu}>
+              UploadPhotos
             </Link>
-          </li>
+          </li>*/}
+
         </ul>
       </nav>
       <div className="social-icons">

@@ -33,7 +33,6 @@ export default Home;
 
 
 /*
-
  <ParallaxLayer offset={3.2} speed={2}>
           <About/>
         </ParallaxLayer>

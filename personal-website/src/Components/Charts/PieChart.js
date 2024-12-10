@@ -1,5 +1,9 @@
 import React from "react";
 import { Pie } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+
+// Register required Chart.js components
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const PieChart = ({ title, dataLabels, dataValues }) => {
   const data = {
@@ -23,6 +27,9 @@ const PieChart = ({ title, dataLabels, dataValues }) => {
     plugins: {
       legend: {
         display: false, // Hide the legend
+      },
+      title: {
+        display: false, // Hides the title above the chart (if any)
       },
     },
     maintainAspectRatio: false, // Ensures proper scaling
