@@ -134,7 +134,8 @@
     border: 2px solid rgb(204, 204, 204);
     justify-content: stretch;
     border-radius: 10px;
-    height: 300px; /* Ensure enough height for the map */
+    height: auto;
+    min-height: 300px; /* Ensure a minimum height for usability */
   }
 
   .leaflet-container {

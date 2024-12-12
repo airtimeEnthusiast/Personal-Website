@@ -52,8 +52,9 @@ const CoasterPage = () => {
   const [parks, setParks] = useState([]);
 
    // Map display
-  const mapCenter = [50, -96]; // Center on the US
+  const mapCenter = [40, -96]; // Center on the US
   const mapZoom = 3.4;
+  
 
   // Statistics for display
   const totalCoasters = coasters.length;
