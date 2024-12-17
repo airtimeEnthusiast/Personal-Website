@@ -58,8 +58,7 @@
   margin-top: 10px;
 }
 
-.chart-container,
-.map-container {
+.chart-container{
   flex: 1;
   padding: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -69,6 +68,20 @@
   border: 2px solid rgb(204, 204, 204);
   justify-content: stretch;
   border-radius: 10px;
+  /* Ensure the map respects the parent's border radius */
+}
+
+.map-container{
+  flex: 1;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  border: 2px solid rgb(204, 204, 204);
+  justify-content: stretch;
+  border-radius: 10px;
+  max-height: 300px;
   /* Ensure the map respects the parent's border radius */
 }
 
@@ -83,6 +96,15 @@
   height: auto;
   /* Ensure it respects the parent's height */
   border-radius: 10px;
+}
+
+.normal-distribution-section {
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 2px solid rgb(204, 204, 204);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: 300px;
 }
 
 .ranking-section {

@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import PieChart from "../../../Components/Charts/PieChart";
 import InfoCard from "../../../Components/Cards/InfoCard";
 import LineChart from "../../../Components/Charts/LineChart";
+import { Line } from 'react-chartjs-2';
 import BarChart from "../../../Components/Charts/BarChart";
 import CoasterSlideshow from "../../../Components/CoasterSlideshow";
 import CoasterList from "../../../Components/CoasterList/CoasterList"; // Scrollable coaster list component
@@ -47,20 +48,36 @@ const ResetMapButton = ({ center, zoom }) => {
 
 // Coaster home page content
 const CoasterPage = () => {
-  const navigate = useNavigate();
+
+  // Coaster Data
   const [coasters, setCoasters] = useState([]);
   const [parks, setParks] = useState([]);
 
-   // Map display
-  const mapCenter = [40, -96]; // Center on the US
-  const mapZoom = 3.4;
-  
+  const [chartData, setChartData] = useState({});
+  const [attribute, setAttribute] = useState("Speed"); // Default attribute: Speed
+
 
   // Statistics for display
   const totalCoasters = coasters.length;
   const woodenCoasters = coasters.filter((coaster) => coaster.Material === "Wood").length;
   const steelCoasters = coasters.filter((coaster) => coaster.Material === "Steel").length;
-  const [sortOrder, setSortOrder] = useState("rank"); // Default sort order
+
+  const [sortOrder, setSortOrder] = useState("rank");
+
+  // Map display
+  const navigate = useNavigate();
+  const mapCenter = [40, -96]; // Center on the US
+  const mapZoom = 3.4;
+
+  // Function to calculate mean and standard deviation
+  const calculateStats = (data) => {
+    const mean = data.reduce((sum, val) => sum + val, 0) / data.length;
+    const stdDev = Math.sqrt(
+      data.reduce((sum, val) => sum + Math.pow(val - mean, 2), 0) / data.length
+    );
+    return { mean, stdDev };
+  };
+
 
 
 
@@ -71,12 +88,12 @@ const CoasterPage = () => {
         const querySnapshot = await getDocs(collection(db, "coasters"));
         const coasterData = querySnapshot.docs.map((doc) => {
           const data = doc.data();
-          
+
           // Find rank by matching name and park
           const rank = customRankings.findIndex(
             (ranking) => ranking.name === data.Name && ranking.park === data.Park
           ) + 1;
-    
+
           return {
             id: doc.id,
             rank: rank > 0 ? rank : Infinity, // Assign rank or Infinity if not in customRankings
@@ -107,6 +124,58 @@ const CoasterPage = () => {
     fetchCoasters();
     fetchParks();
   }, []);
+
+
+  // Normal Distribution
+  useEffect(() => {
+    if (coasters.length === 0) return;
+
+    const attributeValues = coasters
+      .map((coaster) => parseFloat(coaster[attribute]))
+      .filter((value) => !isNaN(value)); // Ensure numeric values only
+
+    if (attributeValues.length === 0) return;
+
+    const { mean, stdDev } = calculateStats(attributeValues);
+
+    const generateNormalDistributionData = (mean, stdDev, numPoints = 200) => {
+      const data = [];
+      const startX = mean - 3 * stdDev; // Start at -3 standard deviations
+      const endX = mean + 3 * stdDev;   // End at +3 standard deviations
+      const step = (endX - startX) / numPoints;
+
+      for (let i = 0; i <= numPoints; i++) {
+        const x = startX + i * step; // Increment x by small steps
+        const y =
+          (1 / (stdDev * Math.sqrt(2 * Math.PI))) *
+          Math.exp(-0.5 * Math.pow((x - mean) / stdDev, 2)); // Normal distribution formula
+        data.push({ x, y });
+      }
+      return data;
+    };
+
+    const data = generateNormalDistributionData(mean, stdDev, 100);
+    setChartData({
+      datasets: [
+        {
+          label: `Normal Distribution (${attribute})`,
+          data: data,
+          parsing: { xAxisKey: "x", yAxisKey: "y" }, // Ensure x and y keys are parsed
+          fill: true,
+          borderColor: "rgba(75,192,192,1)",
+          backgroundColor: "rgba(75,192,192,0.2)",
+          tension: 0.4, // Makes the curve smoother
+          pointRadius: 0, // Hide individual points for a smooth curve
+        },
+      ],
+    });
+  }, [coasters, attribute]);
+
+  // Handle attribute change
+  const handleAttributeChange = (event) => {
+    setAttribute(event.target.value);
+  };
+
 
   // Sort coasters based on selected sort order
   const sortedCoasters = [...coasters].sort((a, b) => {
@@ -160,6 +229,10 @@ const CoasterPage = () => {
     ...topManufacturers.map(([, count]) => count),
     otherManufacturers.reduce((sum, [, count]) => sum + count, 0), // Sum of "Other"
   ];
+
+  if (!chartData) {
+    return <div>Loading...</div>;
+  }
 
   // Coaster page
   return (
@@ -256,6 +329,50 @@ const CoasterPage = () => {
             ))}
           </MapContainer>
         </div>
+
+        <div className="normal-distribution-section">
+          <h3>Normal Distribution Analysis</h3>
+          <label htmlFor="attribute">Select Attribute: </label>
+          <select
+            id="attribute"
+            value={attribute}
+            onChange={handleAttributeChange}
+          >
+            <option value="Speed">Speed</option>
+            <option value="Length">Length</option>
+            <option value="Height">Height</option>
+          </select>
+          {chartData.datasets ? (
+            <Line
+              data={chartData}
+              options={{
+                responsive: true,
+                plugins: {
+                  legend: { display: true },
+                  tooltip: {
+                    callbacks: {
+                      label: (context) =>
+                        `X: ${context.raw.x.toFixed(2)}, Y: ${context.raw.y.toFixed(4)}`,
+                    },
+                  },
+                },
+                scales: {
+                  x: {
+                    type: "linear", // Ensure linear scale for the x-axis
+                    title: { display: true, text: attribute },
+                  },
+                  y: {
+                    title: { display: true, text: "Probability Density" },
+                    beginAtZero: false,
+                  },
+                },
+              }}
+            />
+          ) : (
+            <p>Loading chart...</p>
+          )}
+        </div>
+
 
         <PieChart
           title="Seating Types"

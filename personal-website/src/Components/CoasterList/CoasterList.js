@@ -26,6 +26,8 @@ const CoasterList = ({ coasters, sortOrder, setSortOrder }) => {
             <div className="coaster-content">
               <h2>{coaster.Name}</h2>
               <p>Speed: {coaster.Speed || "N/A"} mph</p>
+              <p>Height: {coaster.Height || "N/A"} ft</p>
+              <p>Link: {coaster.Link || "N/A"}</p>
             </div>
           </div>
         ))}
