@@ -358,8 +358,10 @@ const CoasterPage = () => {
                 },
                 scales: {
                   x: {
-                    type: "linear", // Ensure linear scale for the x-axis
+                    type: "linear",
                     title: { display: true, text: attribute },
+                    min: Math.min(...chartData.datasets[0].data.map((d) => d.x)),
+                    max: Math.max(...chartData.datasets[0].data.map((d) => d.x)),
                   },
                   y: {
                     title: { display: true, text: "Probability Density" },
