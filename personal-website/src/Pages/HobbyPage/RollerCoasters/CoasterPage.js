@@ -8,7 +8,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "../../../Components/Cards/InfoCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationCrosshairs } from "@fortawesome/free-solid-svg-icons";
+import { faLocationCrosshairs, faStethoscope } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import PieChart from "../../../Components/Charts/PieChart";
 import InfoCard from "../../../Components/Cards/InfoCard";
@@ -189,6 +189,8 @@ const CoasterPage = () => {
 
 
   // Data for cards
+
+  // Fastest coaster
   const fastestCoaster =
     coasters.length > 0
       ? coasters.reduce(
@@ -197,6 +199,36 @@ const CoasterPage = () => {
         { Speed: "0" }
       )
       : { Name: "N/A", Speed: "0" };
+
+  //Tallest Coaster
+  const tallestCoaster =
+    coasters.length > 0
+      ? coasters.reduce(
+        (max, coaster) =>
+          parseInt(coaster.Height) > parseInt(max.Height) ? coaster : max,
+        { Height: "0" }
+      )
+      : { Name: "N/A", Height: "0" };
+
+  //Longest Track length
+  const longestCoaster =
+    coasters.length > 0
+      ? coasters.reduce(
+        (max, coaster) =>
+          parseInt(coaster.Length) > parseInt(max.Length) ? coaster : max,
+        { Length: "0" }
+      )
+      : { Name: "N/A", Length: "0" };
+
+    //Most Track Inversions
+    const mostInvertCoaster =
+    coasters.length > 0
+      ? coasters.reduce(
+        (max, coaster) =>
+          parseInt(coaster.Inversions) > parseInt(max.Inversions) ? coaster : max,
+        { Inversions: "0" }
+      )
+      : { Name: "N/A", Inversions: "0" };
 
   // Data for Seating Types
   const seatingData =
@@ -264,7 +296,7 @@ const CoasterPage = () => {
       </header>
 
 
-      <div className="slideshow-section">
+      {/*} <div className="slideshow-section">
         <CoasterSlideshow
           images={[
             "image1.jpg", // Replace with actual images
@@ -272,7 +304,7 @@ const CoasterPage = () => {
             "image3.jpg",
           ]}
         />
-      </div>
+      </div>*/}
 
       <div className="info-cards-section">
         <InfoCard
@@ -280,6 +312,21 @@ const CoasterPage = () => {
           description={fastestCoaster.Name}
           value={fastestCoaster.Speed}
           unit=" mph"
+          link={fastestCoaster.Link}
+        />
+        <InfoCard
+          title="Highest Inverting Coaster"
+          description={mostInvertCoaster.Name}
+          value={mostInvertCoaster.Inversions}
+          unit=" inversions"
+          link={mostInvertCoaster.Link}
+        />
+        <InfoCard
+          title="Longest Coaster"
+          description={longestCoaster.Name}
+          value={longestCoaster.Length}
+          unit=" ft"
+          link={longestCoaster.Link}
         />
       </div>
 

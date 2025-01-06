@@ -38,3 +38,10 @@
     font-weight: normal;
     color: #888;
   }
+
+  .info-cards-section{
+    display: flex;
+    flex-wrap: wrap;               /* Ensures responsiveness */
+    padding: 10px;
+  }
+  

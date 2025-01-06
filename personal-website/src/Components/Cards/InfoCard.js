@@ -1,5 +1,5 @@
 // InfoCard.js
-const InfoCard = ({ title, description, value, unit }) => {
+const InfoCard = ({ title, description, value, unit, link }) => {
     return (
       <div className="info-card">
         <h3>{title}</h3>
@@ -8,6 +8,15 @@ const InfoCard = ({ title, description, value, unit }) => {
           {value}
           {unit}
         </p>
+        {link ? (
+                <p>
+                    <a href={link} target="_blank" rel="noopener noreferrer">
+                        More Info
+                    </a>
+                </p>
+            ) : (
+                <p>No link available</p>
+            )}
       </div>
     );
   };

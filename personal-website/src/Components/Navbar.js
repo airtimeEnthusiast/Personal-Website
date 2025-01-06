@@ -65,7 +65,7 @@ const Navbar = () => {
             </ul>
           </li>
 
-          {/* Nav Hobbies Projects */}
+          {/* Nav Hobbies */}
           <li className="nav-item dropdown">
             <span>Hobbies</span>
             <ul className="dropdown-menu">

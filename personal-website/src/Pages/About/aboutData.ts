@@ -82,5 +82,5 @@ export interface AboutData {
       ]
     },
   
-    skills: ["Mobile & Web Development", "Full-Stack Development", "3D Modeling & Animation", "Data Analytics & Visualization"]
+    skills: ["Mobile & Web Development", "Agile Methodologies", "3D Modeling & Animation", "Data Analytics & Visualization"]
   };
