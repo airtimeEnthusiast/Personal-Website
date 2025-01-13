@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/Personal-Website/static/css/main.809fa945.css",
-    "main.js": "/Personal-Website/static/js/main.57324edd.js",
-    "static/js/453.253ccfac.chunk.js": "/Personal-Website/static/js/453.253ccfac.chunk.js",
-    "static/media/homebackground.jpg": "/Personal-Website/static/media/homebackground.a0a26b639c6defa45966.jpg",
-    "static/media/profile_image.jpg": "/Personal-Website/static/media/profile_image.8a4b3a6ab0523b683440.jpg",
-    "static/media/Postgresql.png": "/Personal-Website/static/media/Postgresql.593e07421fc9328c7d76.png",
-    "static/media/python.png": "/Personal-Website/static/media/python.6a5cbc319ab3ddf8ef92.png",
-    "static/media/cpp.png": "/Personal-Website/static/media/cpp.24a8f93854ab092f17a7.png",
-    "static/media/react.png": "/Personal-Website/static/media/react.d41c85f4035dae6bbe65.png",
-    "static/media/swift.png": "/Personal-Website/static/media/swift.13d82fd58ebf84427765.png",
-    "static/media/beautifulsoup.png": "/Personal-Website/static/media/beautifulsoup.f6b964ebd9a27628632e.png",
-    "static/media/java.png": "/Personal-Website/static/media/java.f5dd86c3ef6ef3f85acf.png",
-    "static/media/swiftui.png": "/Personal-Website/static/media/swiftui.520e14b2dcfd64fbcbb7.png",
-    "static/media/c.png": "/Personal-Website/static/media/c.03589f45a07032f0be45.png",
-    "index.html": "/Personal-Website/index.html",
-    "main.809fa945.css.map": "/Personal-Website/static/css/main.809fa945.css.map",
-    "main.57324edd.js.map": "/Personal-Website/static/js/main.57324edd.js.map",
-    "453.253ccfac.chunk.js.map": "/Personal-Website/static/js/453.253ccfac.chunk.js.map"
+    "main.css": "/AustinWrightPortfolio/static/css/main.809fa945.css",
+    "main.js": "/AustinWrightPortfolio/static/js/main.30d00d78.js",
+    "static/js/453.253ccfac.chunk.js": "/AustinWrightPortfolio/static/js/453.253ccfac.chunk.js",
+    "static/media/homebackground.jpg": "/AustinWrightPortfolio/static/media/homebackground.a0a26b639c6defa45966.jpg",
+    "static/media/profile_image.jpg": "/AustinWrightPortfolio/static/media/profile_image.8a4b3a6ab0523b683440.jpg",
+    "static/media/Postgresql.png": "/AustinWrightPortfolio/static/media/Postgresql.593e07421fc9328c7d76.png",
+    "static/media/python.png": "/AustinWrightPortfolio/static/media/python.6a5cbc319ab3ddf8ef92.png",
+    "static/media/cpp.png": "/AustinWrightPortfolio/static/media/cpp.24a8f93854ab092f17a7.png",
+    "static/media/react.png": "/AustinWrightPortfolio/static/media/react.d41c85f4035dae6bbe65.png",
+    "static/media/swift.png": "/AustinWrightPortfolio/static/media/swift.13d82fd58ebf84427765.png",
+    "static/media/beautifulsoup.png": "/AustinWrightPortfolio/static/media/beautifulsoup.f6b964ebd9a27628632e.png",
+    "static/media/java.png": "/AustinWrightPortfolio/static/media/java.f5dd86c3ef6ef3f85acf.png",
+    "static/media/swiftui.png": "/AustinWrightPortfolio/static/media/swiftui.520e14b2dcfd64fbcbb7.png",
+    "static/media/c.png": "/AustinWrightPortfolio/static/media/c.03589f45a07032f0be45.png",
+    "index.html": "/AustinWrightPortfolio/index.html",
+    "main.809fa945.css.map": "/AustinWrightPortfolio/static/css/main.809fa945.css.map",
+    "main.30d00d78.js.map": "/AustinWrightPortfolio/static/js/main.30d00d78.js.map",
+    "453.253ccfac.chunk.js.map": "/AustinWrightPortfolio/static/js/453.253ccfac.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.809fa945.css",
-    "static/js/main.57324edd.js"
+    "static/js/main.30d00d78.js"
   ]
 }
