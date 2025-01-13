@@ -18,7 +18,7 @@ console.log(h);
 const Projects = () => {
   const { category } = useParams();
 
-  const calculatePages = () => (window.innerWidth <= 768 ? 2.75 : 1.78);
+  const calculatePages = () => (window.innerWidth <= 768 ? 2.9 : 1.78);
 
   // Get the projects for the given category
   const projects: Project[] = projectsData[category] || [];

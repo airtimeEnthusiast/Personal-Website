@@ -33,6 +33,11 @@ export const getPagesForCategory = (category: string): number => {
 export const projectsData: { [key: string]: Project[] } = {
   Coding: [
     {
+      id: 1, title: 'Trip Pulse', description: "An iOS app that uses the GPS to precisely track and calculate the distance a user drives in an automobile. The user can save and export trips and view analytics on the distance traveled, duration, and start and end location. ",
+      link: 'https://airtimeenthusiast.github.io/trippulsesite/#/about',
+      technologies: [swiftIcon]
+    },
+    {
       id: 1, title: 'Ride Experience', description: "An iOS App that logs data from the iPhone's onboard sensors, enabling users to analyze ride dynamics. It also tracks theme park wait times and provides detailed theme park-related statistics.",
       link: 'https://github.com/airtimeEnthusiast/Ride_Experience',
       technologies: [swiftIcon]

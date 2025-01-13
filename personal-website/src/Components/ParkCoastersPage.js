@@ -107,12 +107,18 @@ const ParkCoastersPage = () => {
           />
         </div>}
       </div>
+      <header className="coaster-header">
+      <h1>Coaster List</h1>
+      </header>
       <div className="coaster-list">
         {coasters.map((coaster, index) => (
           <CoasterCard
             key={index}
             name={coaster.Name}
             type={coaster.Material}
+            speed={coaster.Speed}
+            height={coaster.Height}
+            length={coaster.Length}
             image={coaster.image}
             rcdbLink={coaster.Link}
           />

@@ -113,6 +113,15 @@ body {
     text-align: left;
   }
 
+  .project-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #333;
+    font-size: 1.5rem; /* Adjust the size as needed */
+}
+
   .title-icon-container {
     flex-direction: column;
     align-items: flex-start;
@@ -124,9 +133,9 @@ body {
   }
 
   .tech-item {
-    width: 40px; /* Smaller icons for mobile */
-    height: 40px;
-    margin-right: 5px; /* Reduce spacing */
+    width: 35px; /* Smaller icons for mobile */
+    height: 35px;
+    margin-right: 4.5px; /* Reduce spacing */
   }
 
   .description-container {
@@ -136,7 +145,7 @@ body {
 
   .title, .about {
     padding: 20px;
-    font-size: 1rem; /* Adjust font size */
+    font-size: 0.95rem; /* Adjust font size */
   }
 
     /* Adjust Parallax Layer */

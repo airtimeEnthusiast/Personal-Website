@@ -21,13 +21,13 @@ export const languages = [
     {title: "c", icon: c, url: "https://devdocs.io/c/"},
     {title: "typescript", icon: typescript, url: "https://devdocs.io/typescript/"},
     {title: "sql", icon: sql, url: "https://www.postgresql.org/docs/16/reference.html"},
-    {title: "react", icon: react, url: "https://devdocs.io/react/"},
 ];
 
 export const frameworks = [
   {title: "swiftui", icon: swiftui, url: "https://www.swift.org" },
   {title: "expressjs", icon: expressjs, url: "https://docs.oracle.com/en/java/"},
-  {title: "spring", icon: spring, url: "https://docs.oracle.com/en/java/"}
+  {title: "spring", icon: spring, url: "https://docs.oracle.com/en/java/"},
+  {title: "react", icon: react, url: "https://devdocs.io/react/"},
 ];
   
 export interface AboutData {
